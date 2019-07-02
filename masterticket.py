@@ -21,3 +21,17 @@ price = number_of_tickets* TICKET_PRICE
 
 # output the price to the screen
 print ("The total price is ${} ".format(price))
+
+#prompt user if they want to proceed
+prompt = input("would you want to proceed y/n")
+
+	# print out the screen "SOLD!" to confirm purchase
+if (prompt == y):
+
+
+	# and then decrement the tickets remaining by the number of tickets purchased
+
+#Otherwise...
+
+	#thank them by name
+

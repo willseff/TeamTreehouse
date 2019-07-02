@@ -1,0 +1,1 @@
+variable = input("write something")
