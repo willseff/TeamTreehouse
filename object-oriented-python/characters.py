@@ -19,4 +19,6 @@ print(kenneth.pickpocket())
 #same as 
 print(Thief.pickpocket(kenneth))
 
-kenneth
+
+
+
