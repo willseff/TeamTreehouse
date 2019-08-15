@@ -23,9 +23,15 @@ class Die:
 		return int(self) > other or int(self) == other
 	def __le__(self,other):
 		return int(self) < other or int(self) == other
+	def __add__ (self,other):
+		return int(self)+other
+	def __radd__ (self,other):
+		return self+other
+	def __repr__ (self):
+		return str(self.value)
 
-d=Die(value=4)
-print(d.value)
+#d=Die(value=4)
+#print(d.value)
 
 class D6(Die):
 	def __init__ (self,value=0):
@@ -36,6 +42,6 @@ class Dx(Die):
 		super().__init__(sides = sides,value=value)
 
 
-print(D6().value)
+#print(D6().value)
 
-print(int(Dx(sides=100,value=10)))
+#print(int(Dx(sides=100,value=10)))
