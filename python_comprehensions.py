@@ -47,6 +47,7 @@ fizzbuzzes = {key:set(value) for key, value in fizzbuzzes.items()}
 
 fizzbuzzes['fizzbuzz'] = {n for n in fizzbuzzes['fizz'].intersection(fizzbuzzes['buzz'])}
 
+# this gives us the only the number divisible by 7 and 3 between 1 and 100
 print(fizzbuzzes['fizzbuzz'])
 
 
