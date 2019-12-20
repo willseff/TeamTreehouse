@@ -44,7 +44,7 @@ fifteen = add_to_five(10)
 fifteen()
 
 def logme(func):
-	# import logging but we dont want people to have to import loggi to use th decorator
+	# import logging but we dont want people to have to import logging to use th decorator
 	import logging
 	logging.basicConfig(level=logging.DEBUG)
 
