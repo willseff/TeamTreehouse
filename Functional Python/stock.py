@@ -132,6 +132,101 @@ def add_book_prices(book1, book2):
 total = reduce(add_book_prices, [b.price for b in BOOKS])
 print(total)
 
+def long_total(a=None, b=None, books=None):
+    if a is None and b is None and books is None:
+        return None
+
+    if a is None and b is None and books is not None:
+        a = books.pop(0)
+        b = books.pop(0)
+        return long_total(a,b,books)
+
+    if a is not None and books and books is not None and b is None:
+        b = books.pop(0)
+        return long_total(a,b,books)
+
+    if a is not None and b is not None and books is not None:
+        return long_total(a+b, None, books)
+
+    if a is not None and b is not None and not books:
+        return long_total(a+b, None, None)
+
+    if a is not None and b is None and not books or books is None:
+        return a
+
+print(long_total(None, None, [b.price for b in BOOKS]))
 
 
 
+from operator import add
+from functools import reduce
+
+prices = [
+    (6.99, 5),
+    (2.94, 15),
+    (156.99, 2),
+    (99.99, 4),
+    (1.82, 102)
+]
+
+def product_sales(tup):
+    return tup[0]*tup[1]
+
+total = reduce(add,list(map(product_sales,prices)))
+print(total)
+print(list(map(product_sales,prices)))
+
+from operator import add
+from functools import reduce
+
+prices = [
+    (6.99, 5),
+    (2.94, 15),
+    (156.99, 2),
+    (99.99, 4),
+    (1.82, 102)
+]
+
+def product_sales(tup):
+    return tup[0]*tup[1]
+
+total = reduce(add, map(product_sales, prices))
+
+
+### LAMBDAS ###
+
+# if we dont want to write a function which only gets used one time then use lambdas
+
+# this lambda takes two inputs and return the stuff after the colons
+# unless we are sure a function is only needed once dont use lambdas
+total = reduce(lambda x, y: x + y, [b.price for b in BOOKS])
+print(total)
+
+long_books = filter(lambda book: book.number_of_pages >= 600, BOOKS)
+print(len(list(long_books)))
+
+good_deals = filter(lambda book: book.price <=6, BOOKS)
+print(len(list(good_deals)))
+
+
+### PARTIALS ###
+
+from functools import partial
+
+def mark_down(book, discount):
+    book = copy(book)
+    book.price = round(book.price-book.price*discount, 2)
+    return book
+
+
+standard = partial(mark_down, discount=.2)
+half = partial(mark_down, discount=0.5)
+
+print(BOOKS[0].price)
+print(standard(BOOKS[0]).price)
+print(BOOKS[0].price)
+print(half(BOOKS[0]).price)
+
+# make long books half price
+half_price_books = map(half, filter(is_long_book, BOOKS))
+print(list(half_price_books))
