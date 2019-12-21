@@ -230,3 +230,13 @@ print(half(BOOKS[0]).price)
 # make long books half price
 half_price_books = map(half, filter(is_long_book, BOOKS))
 print(list(half_price_books))
+
+### CURRYING ###
+# WTF didnt even write this part down
+
+def curried_f(x, y=None, z=None):
+    def f(x,y,z):
+        return x**3 + y**2 + z
+    if y is not None and z is not None:
+        return f(x,y,z)
+
