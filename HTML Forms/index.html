@@ -12,20 +12,58 @@
 
       <form action="index.html" method="post"> 
         <h1>Fill this form or else you're a simp</h1>
-        <!-- the label tag is matched to the id of the input tag-->
-        <label for="name">Ur dumbass name</label>
-        <input type="text" name="user_name" id="name">
 
-        <label for="mail">Ur stupid email</label>
-        <input type="email" id="mail" name="user_email">
-        
-        <label for="password">password</label>
-        <input type="password" id="passowrd" name="user_password">
+        <fieldset>
+            <legend><span class="number">1</span>Your Basic Info</legend>
 
-        <label for="bio">biography</label>
-        <textarea id='bio' name='user_bio'></textarea>
+            <!-- the label tag is matched to the id of the input tag-->
+            <label for="name">Ur dumbass name</label>
+            <input type="text" name="user_name" id="name">
+
+            <label for="mail">Ur stupid email</label>
+            <input type="email" id="mail" name="user_email">
+
+            <label for="password">password</label>
+            <input type="password" id="passowrd" name="user_password">
+
+
+            <!-- radio buttons with the same name are grouped together-->
+            <label>Age:</label>
+            <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">Under 13</label><br>
+
+            <input type="radio" id="over_13" value="over_13" name="user_age"><label for="over_13" class="light">Over 13</label>
+
+        </fieldset>
+
+        <fieldset>
+
+            <legend><span class="number">2</span>Your profile</legend>
+
+            <label for="bio">biography</label>
+            <textarea id='bio' name='user_bio'></textarea>
+
+            <label for='job'>Job Role:</label>
+            <select id='job' name="user_job">
+                <!-- every input to server side has a value, doesnt need to be specfied for input tag because the value is whatever the user entered but for dropdowns we need to specify the value-->
+                <optgroup label="gay">
+                <option value="frontend_developer">Front-End Developer</option>
+                <option value="php_developer">PHP Developer</option>
+                <option value="python_developer">Python Developer</option>
+                </optgroup>
+                <optgroup label="gayer">
+                <option value="fuckboi">fuckboi</option>
+                <option value="fuckface">fuckface</option>
+                </optgroup>
+            </select>
+
+            <label>Interests:</label>
+            <input type="checkbox" id="jacking_off" value="jacking_off" name="user_interest"><label class='light' for="jacking_off">jacking off</label><br>
+            <input type="checkbox" id="fucking" value="fucking hoes" name="fucking_hoes"><label  class='light' for="fucking">fucking hoes</label><br>
+
+        </fieldset>
 
         <button type="submit">Sign Up Bitch</button>
+
       </form>
       
     </body>
