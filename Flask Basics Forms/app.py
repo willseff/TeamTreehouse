@@ -5,9 +5,12 @@ from flask import url_for, make_response, request
 import json
 #literally importing the dictionary from options.py
 from options import DEFAULTS
+from flask import flash
 
 
 app = Flask(__name__)
+# doesnt matter what the secret key is
+app.secret_key ='fdvzsadfcgdfbwar53wte5654trg'
 
 def get_saved_data():
 	try:
@@ -30,6 +33,7 @@ def builder():
 # methods lists the methods that is can accept, default is all the routes
 @app.route('/save', methods=["POST"])
 def save():
+	flash("Alright changes saved!")
 	#import pdb; pdb.set_trace()
 	response = make_response(redirect(url_for('builder')))
 	# update if there is saved data and send it back
